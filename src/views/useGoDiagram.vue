@@ -1,15 +1,13 @@
 <template>
-<div>
-    <diagram ref='diag' v-bind:model-data='diagramData'
-             v-on:model-changed='modelChanged'
-             v-on:changed-selection='changedSelection' style='border: solid 1px black; width:100%; height:400px'></diagram>
-    <button v-on:click='addNode'>Add Child to Gamma</button>
-    <button v-on:click='modifyStuff'>Modify view model data without undo</button>
+<div style="width: 60%;">
+    <diagram ref='diag' :model-data='diagramData' @model-changed='modelChanged' @changed-selection='changedSelection' style='border: solid 1px black; width:100%; height:200px'></diagram>
+    <button @click='addNode'>Add Child to Gamma</button>
+    <button @click='modifyStuff'>Modify view model data without undo</button>
     <br/>Current Node:
-    <input v-model.lazy='currentNodeText' v-bind:disabled='currentNode === null'/>
+    <input v-model.lazy='currentNodeText' :disabled='currentNode === null'/>
     <br/>The saved GoJS Model:
     <!--<textarea style='width:100%;height:250px'>{{ savedModelText }}</textarea>-->
-    <textarea style='width:100%;height:250px' v-model="savedModelText"></textarea>
+    <textarea style='width:100%;height:200px' v-model="savedModelText"></textarea>
 </div>
 </template>
 
@@ -48,7 +46,7 @@ export default {
     computed: {
         currentNodeText: {
             get: function () {
-                var node = this.currentNode
+                let node = this.currentNode
                 if (node instanceof window.go.Node) {
                     return node.data.text
                 } else {
@@ -56,9 +54,9 @@ export default {
                 }
             },
             set: function (val) {
-                var node = this.currentNode
+                let node = this.currentNode
                 if (node instanceof window.go.Node) {
-                    var model = this.model()
+                    let model = this.model()
                     model.startTransaction()
                     model.setDataProperty(node.data, 'text', val)
                     model.commitTransaction('edited text')
@@ -68,9 +66,13 @@ export default {
     },
     methods: {
         // get access to the GoJS Model of the GoJS Diagram
-        model: function () { return this.$refs.diag.model() },
+        model: function () {
+            return this.$refs.diag.model()
+        },
         // tell the GoJS Diagram to update based on the arbitrarily modified model data
-        updateDiagramFromData: function () { this.$refs.diag.updateDiagramFromData() },
+        updateDiagramFromData: function () {
+            this.$refs.diag.updateDiagramFromData()
+        },
         // this event listener is declared on the <diagram>
         modelChanged: function (e) {
             if (e.isTransactionFinished) { // show the model data in the page's TextArea
@@ -78,7 +80,7 @@ export default {
             }
         },
         changedSelection: function (e) {
-            var node = e.diagram.selection.first()
+            let node = e.diagram.selection.first()
             if (node instanceof window.go.Node) {
                 this.currentNode = node
                 this.currentNodeText = node.data.text
@@ -92,15 +94,15 @@ export default {
         // the GoJS Diagram to find differences and update accordingly.
         // Undo and Redo will work as expected.
         addNode: function () {
-            var model = this.model()
+            let model = this.model()
             model.startTransaction()
             model.setDataProperty(model.findNodeDataForKey(4), 'color', 'purple')
-            var data = { text: 'NEW ' + this.counter++, color: 'yellow' }
+            let data = { text: 'NEW ' + this.counter++, color: 'yellow' }
             model.addNodeData(data)
             model.addLinkData({ from: 3, to: model.getKeyForNodeData(data) })
             model.commitTransaction('added Node and Link')
             // also manipulate the Diagram by changing its Diagram.selection collection
-            var diagram = this.$refs.diag.diagram
+            let diagram = this.$refs.diag.diagram
             diagram.select(diagram.findNodeForData(data))
         },
         // Here we modify VUE's view model directly, and
@@ -108,7 +110,7 @@ export default {
         // This is less efficient than calling the appropriate GoJS Model methods.
         // NOTE: Undo will not be able to restore all of the state properly!!
         modifyStuff: function () {
-            var data = this.diagramData
+            let data = this.diagramData
             data.nodeDataArray[0].color = 'red'
             // Note here that because we do not have the GoJS Model,
             // we cannot find out what values would be unique keys, for reference by the link data.

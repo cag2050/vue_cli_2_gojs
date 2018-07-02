@@ -1,5 +1,7 @@
 # vue_cli_2_gojs_demo
 
+* 根据官方demo做的例子，官方demo地址：https://gojs.net/latest/samples/vue.html
+
 > A Vue.js project
 
 ## Build Setup
