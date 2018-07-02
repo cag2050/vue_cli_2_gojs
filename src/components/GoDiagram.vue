@@ -14,8 +14,8 @@ export default {
         }
     },
     mounted () {
-        var self = this
-        var myDiagram =
+        let self = this
+        let myDiagram =
             $(window.go.Diagram, this.$el,
                 {
                     initialContentAlignment: window.go.Spot.Center,
@@ -69,9 +69,9 @@ export default {
             if (val instanceof window.go.Model) {
                 this.diagram.model = val
             } else {
-                var m = new window.go.GraphLinksModel()
+                let m = new window.go.GraphLinksModel()
                 if (val) {
-                    for (var p in val) {
+                    for (let p in val) {
                         m[p] = val[p]
                     }
                 }
