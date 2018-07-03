@@ -22,17 +22,14 @@ export default {
     data () {
         return {
             diagramData: {
-                nodeDataArray: [
-                    { key: 1, text: 'Alpha', color: 'lightblue' },
-                    { key: 2, text: 'Beta', color: 'orange' },
-                    { key: 3, text: 'Gamma', color: 'lightgreen' },
-                    { key: 4, text: 'Delta', color: 'pink' }
+                'class': 'go.GraphLinksModel',
+                'linkFromPortIdProperty': 'fromPort',
+                'linkToPortIdProperty': 'toPort',
+                'nodeDataArray': [
+                    {'category': 'Command', 'text': 'Command1', 'key': -2, 'loc': '-93.90625 -344.50000000000006'},
+                    {'category': 'Command', 'text': 'Command2', 'key': -3, 'loc': '-111.796875 -289.25'}
                 ],
-                linkDataArray: [
-                    { from: 1, to: 2 },
-                    { from: 1, to: 3 },
-                    { from: 3, to: 4 }
-                ]
+                'linkDataArray': [ {'from': -2, 'to': -3, 'fromPort': 'B', 'toPort': 'T', 'text': 'up or timer', 'curviness': -20, 'points': [-93.90625, -328.06227569580085, -93.90625, -318.06227569580085, -93.90625, -316.875, -111.796875, -316.875, -111.796875, -315.6877243041992, -111.796875, -305.6877243041992]} ]
             },
             currentNode: null,
             savedModelText: '',

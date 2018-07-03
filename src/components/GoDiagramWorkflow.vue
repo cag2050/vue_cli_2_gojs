@@ -38,24 +38,6 @@ export default {
                     },
                     allowDrop: true
                 })
-        /*
-        myDiagram.nodeTemplate =
-            $(go.Node, 'Auto', this.nodeStyle(),
-                $(go.Shape,
-                    {
-                        fill: 'white',
-                        strokeWidth: 0,
-                        portId: '',
-                        fromLinkable: true,
-                        toLinkable: true,
-                        cursor: 'pointer'
-                    },
-                    new go.Binding('fill', 'color')),
-                $(go.TextBlock,
-                    {margin: 8, editable: true},
-                    new go.Binding('text').makeTwoWay())
-            )
-        */
         myDiagram.nodeTemplateMap.add('',
             $(go.Node, 'Spot', this.nodeStyle(),
                 $(go.Panel, 'Auto',
@@ -79,14 +61,6 @@ export default {
                 this.makePort('R', go.Spot.Right, true, true),
                 this.makePort('B', go.Spot.Bottom, true, false)
             ))
-        /*
-        myDiagram.linkTemplate =
-            $(go.Link,
-                {relinkableFrom: true, relinkableTo: true},
-                $(go.Shape),
-                $(go.Shape, {toArrow: 'OpenTriangle'})
-            )
-        */
         myDiagram.linkTemplate =
             $(go.Link,
                 $(go.TextBlock, // this is a Link label
