@@ -23,7 +23,6 @@ export default {
     },
     mounted () {
         let self = this
-
         let myDiagram =
             $(go.Diagram, this.$refs.myDiagramDiv,
                 {
