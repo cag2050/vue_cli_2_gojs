@@ -10,7 +10,13 @@ export default new Router({
         {
             path: '/',
             name: '',
-            component: resolve => require(['./views/useGoDiagram'], resolve),
+            component: resolve => require(['./views/useGoDiagramWorkflow'], resolve),
+            meta: { scrollToTop: true }
+        },
+        {
+            path: '/tree_layout',
+            name: '',
+            component: resolve => require(['./views/useGoDiagramTreeLayout'], resolve),
             meta: { scrollToTop: true }
         },
         {

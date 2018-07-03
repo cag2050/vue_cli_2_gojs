@@ -14,6 +14,7 @@ export default {
         }
     },
     mounted () {
+        console.log(window.go)
         let self = this
         let myDiagram =
             $(window.go.Diagram, this.$el,

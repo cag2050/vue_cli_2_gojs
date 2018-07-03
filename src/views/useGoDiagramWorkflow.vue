@@ -1,6 +1,6 @@
 <template>
-<div style="width: 60%;">
-    <diagram ref='diag' :model-data='diagramData' @model-changed='modelChanged' @changed-selection='changedSelection' style='border: solid 1px black; width:100%; height:200px'></diagram>
+<div style="width: 60%;text-align: left;">
+    <diagram ref='diag' :model-data='diagramData' @model-changed='modelChanged' @changed-selection='changedSelection' style='width:100%; height:220px'></diagram>
     <button @click='addNode'>Add Child to Gamma</button>
     <button @click='modifyStuff'>Modify view model data without undo</button>
     <br/>Current Node:
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import diagram from '../components/GoDiagram'
+import diagram from '../components/GoDiagramWorkflow'
 
 export default {
     name: '',
@@ -21,7 +21,7 @@ export default {
     },
     data () {
         return {
-            diagramData: { // passed to <diagram> as its modelData
+            diagramData: {
                 nodeDataArray: [
                     { key: 1, text: 'Alpha', color: 'lightblue' },
                     { key: 2, text: 'Beta', color: 'orange' },
