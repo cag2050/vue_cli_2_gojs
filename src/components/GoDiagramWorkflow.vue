@@ -116,7 +116,7 @@ export default {
                 {
                     'animationManager.duration': 800, // slightly longer than default (600ms) animation
                     nodeTemplateMap: myDiagram.nodeTemplateMap, // share the templates used by myDiagram
-                    nodeTemplate: myDiagram.nodeTemplate, // share the templates used by myDiagram
+                    // nodeTemplate: myDiagram.nodeTemplate, // share the templates used by myDiagram
                     model: new go.GraphLinksModel([ // specify the contents of the Palette
                         {category: 'Start', text: 'Start'},
                         {category: 'Command', text: 'Command'},
