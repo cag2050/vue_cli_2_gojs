@@ -95,14 +95,12 @@ export default {
             }
         },
         textEdited: function (e) {
-            this.updateDiagramFromData()
             let data = this.diagramData
-            console.log(this.diagramData)
             let nodeDataArray = data.nodeDataArray
             let len = nodeDataArray.length
             for (let i = 0; i < len; i++) {
-                console.log(nodeDataArray[i]['text'])
                 nodeDataArray[i]['text'] = nodeDataArray[i]['text'].replace(/：/g, ':')
+                console.log(nodeDataArray[i]['text'])
             }
             this.updateDiagramFromData()
         },
