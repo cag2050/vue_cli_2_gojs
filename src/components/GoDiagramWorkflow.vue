@@ -1,10 +1,10 @@
 <template>
-    <div style="width:100%; white-space:nowrap;">
-        <span style="border: 1px solid gray;display: inline-block; vertical-align: top; width:120px;">
-            <div ref="myPaletteDiv" style="height: 210px;">1111</div>
+    <div style='width:100%; white-space:nowrap;'>
+        <span style='border: 1px solid gray;display: inline-block; vertical-align: top; width:120px;'>
+            <div ref='myPaletteDiv' style='height: 210px;'>1111</div>
         </span>
-        <span style="border: 1px solid gray;display: inline-block; vertical-align: top; width:40%;">
-            <div ref="myDiagramDiv" style="height: 210px"></div>
+        <span style='border: 1px solid gray;display: inline-block; vertical-align: top; width:40%;'>
+            <div ref='myDiagramDiv' style='height: 210px'></div>
         </span>
     </div>
 </template>
@@ -99,8 +99,8 @@ export default {
                 $(go.Panel, 'Auto', // the link label, normally not visible
                     {visible: false, name: 'LABEL', segmentIndex: 2, segmentFraction: 0.5},
                     new go.Binding('visible', 'visible').makeTwoWay(),
-                    $(go.Shape, 'RoundedRectangle', // the label shape
-                        {fill: '#F8F8F8', stroke: null}),
+                    $(go.Shape, // the label shape
+                        {fill: $(go.Brush, 'Radial', { 0: 'rgb(240, 240, 240)', 0.3: 'rgb(240, 240, 240)', 1: 'rgba(240, 240, 240, 0)' }), stroke: null}),
                     $(go.TextBlock, 'Yes', // the label
                         {
                             textAlign: 'center',
@@ -140,11 +140,11 @@ export default {
             return $(go.Shape, 'Circle',
                 {
                     fill: 'transparent',
-                    stroke: null, // this is changed to "white" in the showPorts function
+                    stroke: null, // this is changed to 'white' in the showPorts function
                     desiredSize: new go.Size(8, 8),
                     alignment: spot,
                     alignmentFocus: spot, // align the port on the main Shape
-                    portId: name, // declare this object to be a "port"
+                    portId: name, // declare this object to be a 'port'
                     fromSpot: spot,
                     toSpot: spot, // declare where links may connect at this port
                     fromLinkable: output,

@@ -22,22 +22,41 @@ export default {
     data () {
         return {
             // diagramData: {},
-            diagramData: {
+            diagramData2: {
                 'class': 'go.GraphLinksModel',
                 'linkFromPortIdProperty': 'fromPort',
                 'linkToPortIdProperty': 'toPort',
                 'nodeDataArray': [],
                 'linkDataArray': []
             },
-            diagramData2: {
+            diagramData: {
                 'class': 'go.GraphLinksModel',
                 'linkFromPortIdProperty': 'fromPort',
                 'linkToPortIdProperty': 'toPort',
                 'nodeDataArray': [
-                    {'category': 'Command', 'text': 'Command1', 'key': -2, 'loc': '-93.90625 -344.50000000000006'},
-                    {'category': 'Command', 'text': 'Command2', 'key': -3, 'loc': '-111.796875 -289.25'}
+                    {
+                        'category': 'Command',
+                        'text': 'Command1',
+                        'key': -2,
+                        'loc': '-202.90624999999994 -369.4999999999998'
+                    },
+                    {
+                        'category': 'Command',
+                        'title': 'tsfsfsfsfsfsf',
+                        'text': 'Command2',
+                        'key': -3,
+                        'loc': '-109.79687500000006 -248.24999999999994'
+                    }
                 ],
-                'linkDataArray': [ {'from': -2, 'to': -3, 'fromPort': 'B', 'toPort': 'T', 'text': 'up or timer', 'curviness': -20, 'points': [-93.90625, -328.06227569580085, -93.90625, -318.06227569580085, -93.90625, -316.875, -111.796875, -316.875, -111.796875, -315.6877243041992, -111.796875, -305.6877243041992]} ]
+                'linkDataArray': [{
+                    'from': -2,
+                    'to': -3,
+                    'fromPort': 'B',
+                    'toPort': 'T',
+                    'text': 'up or timer',
+                    'curviness': -20,
+                    'points': [-202.90625, -353.06227569580085, -202.90625, -343.06227569580085, -202.90625, -308.875, -109.796875, -308.875, -109.796875, -274.6877243041992, -109.796875, -264.6877243041992]
+                }]
             },
             currentNode: null,
             savedModelText: '',
