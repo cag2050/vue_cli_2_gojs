@@ -36,6 +36,12 @@ export default {
                     'ChangedSelection': function (e) {
                         self.$emit('changed-selection', e)
                     },
+                    'Modified': function (e) {
+                        self.$emit('modified', e)
+                    },
+                    'TextEdited': function (e) {
+                        self.$emit('text-edited', e)
+                    },
                     allowDrop: true
                 })
         myDiagram.nodeTemplateMap.add('',
@@ -83,7 +89,6 @@ export default {
                         link.findObject('HIGHLIGHT').stroke = 'transparent'
                     }
                 },
-
                 new go.Binding('points').makeTwoWay(),
                 $(go.Shape, // the highlight shape, normally transparent
                     {isPanelMain: true, strokeWidth: 8, stroke: 'transparent', name: 'HIGHLIGHT'}),
@@ -124,6 +129,8 @@ export default {
     },
     watch: {
         modelData: function (val) {
+            console.log('watch')
+            console.log(val)
             this.updateModel(val)
         }
     },

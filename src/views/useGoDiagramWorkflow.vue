@@ -1,6 +1,6 @@
 <template>
 <div style="width: 60%;text-align: left;">
-    <diagram ref='diag' :model-data='diagramData' @model-changed='modelChanged' @changed-selection='changedSelection' style='width:100%; height:220px'></diagram>
+    <diagram ref='diag' :model-data='diagramData' @model-changed='modelChanged' @changed-selection='changedSelection' @text-edited="textEdited" @modified="modified" style='width:100%; height:220px'></diagram>
     <button @click='addNode'>Add Child to Gamma</button>
     <button @click='modifyStuff'>Modify view model data without undo</button>
     <br/>Current Node:
@@ -21,7 +21,15 @@ export default {
     },
     data () {
         return {
+            // diagramData: {},
             diagramData: {
+                'class': 'go.GraphLinksModel',
+                'linkFromPortIdProperty': 'fromPort',
+                'linkToPortIdProperty': 'toPort',
+                'nodeDataArray': [],
+                'linkDataArray': []
+            },
+            diagramData2: {
                 'class': 'go.GraphLinksModel',
                 'linkFromPortIdProperty': 'fromPort',
                 'linkToPortIdProperty': 'toPort',
@@ -85,6 +93,20 @@ export default {
                 this.currentNode = null
                 this.currentNodeText = ''
             }
+        },
+        textEdited: function (e) {
+            this.updateDiagramFromData()
+            let data = this.diagramData
+            console.log(this.diagramData)
+            let nodeDataArray = data.nodeDataArray
+            let len = nodeDataArray.length
+            for (let i = 0; i < len; i++) {
+                console.log(nodeDataArray[i]['text'])
+                nodeDataArray[i]['text'] = nodeDataArray[i]['text'].replace(/：/g, ':')
+            }
+            this.updateDiagramFromData()
+        },
+        modified: function (e) {
         },
         // Here we modify the GoJS Diagram's Model using its methods,
         // which can be much more efficient than modifying some memory and asking
