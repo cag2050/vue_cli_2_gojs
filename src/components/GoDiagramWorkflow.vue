@@ -97,7 +97,7 @@ export default {
                 $(go.Shape, // the arrowhead
                     {toArrow: 'standard', stroke: null, fill: 'gray'}),
                 $(go.Panel, 'Auto', // the link label, normally not visible
-                    {visible: false, name: 'LABEL', segmentIndex: 2, segmentFraction: 0.5},
+                    {visible: true, name: 'LABEL', segmentIndex: 2, segmentFraction: 0.5},
                     new go.Binding('visible', 'visible').makeTwoWay(),
                     $(go.Shape, // the label shape
                         {fill: $(go.Brush, 'Radial', { 0: 'rgb(240, 240, 240)', 0.3: 'rgb(240, 240, 240)', 1: 'rgba(240, 240, 240, 0)' }), stroke: null}),
@@ -106,7 +106,7 @@ export default {
                             textAlign: 'center',
                             font: '10pt helvetica, arial, sans-serif',
                             stroke: '#333333',
-                            editable: true
+                            editable: false
                         },
                         new go.Binding('text').makeTwoWay())
                 )
