@@ -14,6 +14,12 @@ export default new Router({
             meta: { scrollToTop: true }
         },
         {
+            path: '/workflow2',
+            name: '',
+            component: resolve => require(['./views/useGoDiagramWorkflow2'], resolve),
+            meta: { scrollToTop: true }
+        },
+        {
             path: '/tree_layout',
             name: '',
             component: resolve => require(['./views/useGoDiagramTreeLayout'], resolve),
