@@ -62,11 +62,10 @@ export default {
                             column: 2,
                             // columnSpan: 3,
                             alignment: go.Spot.Left,
-                            editable: true
-                        },
-                        {
-                            font: 'bold 12pt sans-serif',
-                            maxSize: new go.Size(100, NaN)
+                            editable: true,
+                            // font: 'bold 12pt sans-serif',
+                            maxSize: new go.Size(210, NaN),
+                            margin: 6
                         },
                         // new go.Binding('text', 'explain')
                         new go.Binding('text', 'explain').makeTwoWay()
@@ -77,8 +76,9 @@ export default {
                         {
                             row: 2,
                             column: 2,
-                            maxSize: new go.Size(160, NaN),
-                            editable: true
+                            maxSize: new go.Size(210, NaN),
+                            editable: true,
+                            margin: 6
                         },
                         // new go.Binding('text', 'text')
                         new go.Binding('text').makeTwoWay()
